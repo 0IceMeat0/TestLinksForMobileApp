@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 const PDF_URL = "https://www.sberbank.com/sberprime/static/pdf/30day_dec_prime.pdf";
@@ -12,82 +14,328 @@ export default function Home() {
         <p className="text-slate-400 text-sm">
           URL: {PDF_URL}
         </p>
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            7. JavaScript onclick + window.open (вариант для WebView)
+          </h2>
+          <button
+            type="button"
+            onClick={() => window.open(PDF_URL, "_blank")}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (onclick window.open)
+          </button>
+        </section>
 
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            1. Тег &lt;a&gt; без target blank
+            8. a href + onclick window.open (fallback)
           </h2>
           <a
             href={PDF_URL}
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(PDF_URL, "_blank", "noopener,noreferrer");
+            }}
             className="block text-emerald-400 hover:text-emerald-300 underline"
           >
-            Открыть PDF (a, без target blank)
+            Открыть PDF (a + onclick preventDefault)
           </a>
         </section>
 
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            2. Тег &lt;a&gt; с target=&quot;_blank&quot;
+            9. a href=# + onclick (без перехода по href)
           </h2>
           <a
-            href={PDF_URL}
-            target="_blank"
+            href="#"
+            onClick={(e) => {
+              e.preventDefault();
+              window.open(PDF_URL, "_blank");
+            }}
             className="block text-emerald-400 hover:text-emerald-300 underline"
           >
-            Открыть PDF (a, target=&quot;_blank&quot;)
+            Открыть PDF (href=# + onclick)
           </a>
         </section>
 
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            3. Тег &lt;a&gt; с target=&quot;_blank&quot; и rel
+            10. a с download (принудительная загрузка)
+          </h2>
+          <a
+            href={PDF_URL}
+            download="30day_dec_prime.pdf"
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Скачать PDF (download attr)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            11. location.href (то же окно)
+          </h2>
+          <button
+            type="button"
+            onClick={() => { window.location.href = PDF_URL; }}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (location.href)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            12. location.assign
+          </h2>
+          <button
+            type="button"
+            onClick={() => { window.location.assign(PDF_URL); }}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (location.assign)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            13. Динамический &lt;a&gt; + programmatic click
+          </h2>
+          <button
+            type="button"
+            onClick={() => {
+              const a = document.createElement("a");
+              a.href = PDF_URL;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+              a.click();
+            }}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (createElement + click)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            14. a href=javascript:window.open()
+          </h2>
+          <a
+            href={`javascript:window.open('${PDF_URL}','_blank')`}
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (href javascript:)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            15. Form GET + target=_blank
+          </h2>
+          <form action={PDF_URL} method="get" target="_blank" className="inline-block">
+            <button type="submit" className="text-emerald-400 hover:text-emerald-300 underline text-left">
+              Открыть PDF (form target blank)
+            </button>
+          </form>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            16. window.open с полным 3-м аргументом
+          </h2>
+          <button
+            type="button"
+            onClick={() => window.open(PDF_URL, "_blank", "noopener,noreferrer,noopener")}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (window.open full params)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            17. a target=_top (выход из iframe)
+          </h2>
+          <a
+            href={PDF_URL}
+            target="_top"
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (target=_top)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            18. a target=_self (явно)
+          </h2>
+          <a
+            href={PDF_URL}
+            target="_self"
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (target=_self)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            19. span role=link + onClick
+          </h2>
+          <span
+            role="link"
+            tabIndex={0}
+            onClick={() => window.open(PDF_URL, "_blank")}
+            onKeyDown={(e) => e.key === "Enter" && window.open(PDF_URL, "_blank")}
+            className="block text-emerald-400 hover:text-emerald-300 underline cursor-pointer"
+          >
+            Открыть PDF (span + onClick)
+          </span>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            20. a + mousedown (раньше click)
+          </h2>
+          <a
+            href={PDF_URL}
+            onMouseDown={(e) => {
+              e.preventDefault();
+              window.open(PDF_URL, "_blank");
+            }}
+            onClick={(e) => e.preventDefault()}
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (mousedown + onclick)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            21. React Native: postMessage (onMessage в RN)
+          </h2>
+          <button
+            type="button"
+            onClick={() => {
+              if (typeof window !== "undefined" && (window as unknown as { ReactNativeWebView?: { postMessage: (s: string) => void } }).ReactNativeWebView) {
+                (window as unknown as { ReactNativeWebView: { postMessage: (s: string) => void } }).ReactNativeWebView.postMessage(JSON.stringify({ type: "openUrl", url: PDF_URL }));
+              } else {
+                window.open(PDF_URL, "_blank");
+              }
+            }}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть (postMessage RN или window.open)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            22. Android Intent URL
+          </h2>
+          <a
+            href={`intent://www.sberbank.com/sberprime/static/pdf/30day_dec_prime.pdf#Intent;scheme=https;action=android.intent.action.VIEW;end`}
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть (Intent URL для Android)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            23. a + rel=&quot;external&quot; (нативный перехват)
           </h2>
           <a
             href={PDF_URL}
             target="_blank"
+            rel="external noopener noreferrer"
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (rel=external)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            24. data-open-external (для shouldOverrideUrlLoading)
+          </h2>
+          <a
+            href={PDF_URL}
+            target="_blank"
+            data-open-external="true"
+            data-url={PDF_URL}
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть PDF (data-open-external)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            25. setTimeout window.open (обход тайминга)
+          </h2>
+          <button
+            type="button"
+            onClick={() => setTimeout(() => window.open(PDF_URL, "_blank"), 0)}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (setTimeout + window.open)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            26. window.open с popup features
+          </h2>
+          <button
+            type="button"
+            onClick={() => window.open(PDF_URL, "_blank", "width=800,height=600,menubar=no,toolbar=no")}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-left"
+          >
+            Открыть PDF (popup features)
+          </button>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            27. &lt;object&gt; встроенный просмотр
+          </h2>
+          <a
+            href={PDF_URL}
+            className="block text-emerald-400 hover:text-emerald-300 underline mb-2"
+          >
+            Открыть в object ниже
+          </a>
+          <object data={PDF_URL} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            <a href={PDF_URL} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
+          </object>
+        </section>
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            30. target=&quot;pdf&quot; (named window, повторное окно)
+          </h2>
+          <a
+            href={PDF_URL}
+            target="pdf"
             rel="noopener noreferrer"
             className="block text-emerald-400 hover:text-emerald-300 underline"
           >
-            Открыть PDF (a, target blank + rel noopener noreferrer)
+            Открыть PDF (target=pdf)
           </a>
         </section>
 
-        <section className="space-y-6">
+        <section className="space-y-6 pt-8 border-t border-slate-700">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            4. Next.js Link без target blank
+            HTML-разметка этого документа
           </h2>
           <Link
-            href={PDF_URL}
-            className="block text-emerald-400 hover:text-emerald-300 underline"
-          >
-            Открыть PDF (Link, без target blank)
-          </Link>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            5. Next.js Link с target=&quot;_blank&quot;
-          </h2>
-          <Link
-            href={PDF_URL}
-            target="_blank"
-            className="block text-emerald-400 hover:text-emerald-300 underline"
-          >
-            Открыть PDF (Link, target=&quot;_blank&quot;)
-          </Link>
-        </section>
-
-        <section className="space-y-6">
-          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
-            6. Next.js Link с target blank и rel
-          </h2>
-          <Link
-            href={PDF_URL}
+            href="/html-source"
             target="_blank"
             rel="noopener noreferrer"
-            className="block text-emerald-400 hover:text-emerald-300 underline"
+            className="block text-amber-400 hover:text-amber-300 underline"
           >
-            Открыть PDF (Link, target blank + rel noopener noreferrer)
+            Открыть страницу с HTML-разметкой →
           </Link>
         </section>
       </div>
