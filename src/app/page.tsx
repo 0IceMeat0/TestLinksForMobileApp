@@ -4,6 +4,9 @@ import Link from "next/link";
 
 const PDF_URL = "https://zvuk.com/docs/sa/pravila_promo_sa.pdf";
 
+// Локальный PDF в проекте: public/30day_dec_prime.pdf — ссылка «Скачать документ» скачивает без JS (same-origin + download)
+const LOCAL_PDF_PATH = "/30day_dec_prime.pdf";
+
 // URL для диплинков браузеров (можно подставить любой)
 const BROWSER_DEEP_LINK_URL = "https://zvuk.com/docs/sa/pravila_promo_sa.pdf";
 
@@ -310,24 +313,24 @@ export default function Home() {
           >
             Открыть в object ниже
           </a>
-          <object data={PDF_URL} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
-            <a href={PDF_URL} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
+<object data={LOCAL_PDF_PATH} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            <a href={LOCAL_PDF_PATH} target="_blank" rel="noopener" download="30day_dec_prime.pdf" className="text-emerald-400 underline">Скачать документ</a>
           </object>
-          <iframe src={PDF_URL}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+        <iframe src={LOCAL_PDF_PATH}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
           </iframe>
-          <embed src={PDF_URL}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+          <embed src={LOCAL_PDF_PATH}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
             </embed>
 
 
-            <object data={'https://zvuk.com'} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
-            <a href={'https://zvuk.com'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
+            <object data={'https://zvuk.com/about/documents/terms'} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            <a href={'https://zvuk.com/about/documents/terms'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
           </object>
-          <iframe src={'https://zvuk.com'}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+          <iframe src={'https://zvuk.com/about/documents/terms'}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
           </iframe>
-          <embed src={'https://zvuk.com'} width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+          <embed src={'https://zvuk.com/about/documents/terms'} width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
             </embed>
         </section>
