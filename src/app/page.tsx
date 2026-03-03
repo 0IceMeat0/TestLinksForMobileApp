@@ -313,6 +313,9 @@ export default function Home() {
           <object data={PDF_URL} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             <a href={PDF_URL} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
           </object>
+          <iframe src={PDF_URL}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            
+          </iframe>
         </section>
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
