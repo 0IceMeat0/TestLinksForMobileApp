@@ -316,6 +316,20 @@ export default function Home() {
           <iframe src={PDF_URL}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
           </iframe>
+          <embed src={PDF_URL}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            
+            </embed>
+
+
+            <object data={'https://zvuk.com'} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            <a href={'https://zvuk.com'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
+          </object>
+          <iframe src={'https://zvuk.com'}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            
+          </iframe>
+          <embed src={'https://zvuk.com'} width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
+            
+            </embed>
         </section>
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
