@@ -325,6 +325,45 @@ export default function Home() {
           </a>
         </section>
 
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            31. Android (открытие в браузере)
+          </h2>
+          <p className="text-slate-400 text-sm">
+            Ссылка для перехвата в приложении: <code className="text-slate-300">shouldOverrideUrlLoading</code> → <code className="text-slate-300">Intent.ACTION_VIEW</code>.
+          </p>
+          <a
+            href={PDF_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-open-in-browser="true"
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть в браузере (Android)
+          </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            32. Диплинк browsers:// (открыть в браузере)
+          </h2>
+          <p className="text-slate-400 text-sm">
+            Кастомная схема: приложение перехватывает <code className="text-slate-300">browsers://</code> и открывает URL в браузере.
+          </p>
+          <a
+            href={`browsers://open?url=${encodeURIComponent(PDF_URL)}`}
+            className="block text-emerald-400 hover:text-emerald-300 underline"
+          >
+            Открыть (browsers://open?url=…)
+          </a>
+          <a
+            href={`browsers://${PDF_URL}`}
+            className="block text-emerald-400 hover:text-emerald-300 underline text-sm"
+          >
+            Вариант: browsers:// + ссылка
+          </a>
+        </section>
+
         <section className="space-y-6 pt-8 border-t border-slate-700">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
             HTML-разметка этого документа
