@@ -307,7 +307,7 @@ export default function Home() {
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
             27. &lt;object&gt; встроенный просмотр
           </h2>
-          <a
+          {/* <a
             href={PDF_URL}
             className="block text-emerald-400 hover:text-emerald-300 underline mb-2"
           >
@@ -321,9 +321,15 @@ export default function Home() {
           </iframe>
           <embed src={LOCAL_PDF_PATH}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
-            </embed>
-
-
+            </embed> */}
+            <a href={LOCAL_PDF_PATH} target="_blank" rel="noopener" download="30day_dec_prime.pdf" className="text-emerald-400 underline">Скачать документ</a>
+            <br />
+            <a href={'https://zvuk.com/about/documents/terms'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest</a>
+            <br />
+            <a href={'https://zvuk.com/docs/sa/pravila_promo_sa.pdf'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest2</a>
+            <br />
+            <a href={'https://zvuk.com/docs/sa/pravila_promo_sa.pdf'} target="_blank" rel="noopener" download="30day_dec_prime.pdf" className="text-emerald-400 underline">Скачать документ</a>
+            {/* <a href={'/30day_dec_prime.pdf'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest</a>
             <object data={'https://zvuk.com/about/documents/terms'} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             <a href={'https://zvuk.com/about/documents/terms'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
           </object>
@@ -332,7 +338,7 @@ export default function Home() {
           </iframe>
           <embed src={'https://zvuk.com/about/documents/terms'} width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
-            </embed>
+            </embed> */}
         </section>
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
