@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 
-const PDF_URL = "https://www.sberbank.com/sberprime/static/pdf/30day_dec_prime.pdf";
+const PDF_URL = "https://zvuk.com/docs/sa/pravila_promo_sa.pdf";
 
 // URL для диплинков браузеров (можно подставить любой)
-const BROWSER_DEEP_LINK_URL = "https://yandex.ru";
+const BROWSER_DEEP_LINK_URL = "https://zvuk.com/docs/sa/pravila_promo_sa.pdf";
 
 export default function Home() {
   return (
@@ -68,7 +68,7 @@ export default function Home() {
           </h2>
           <a
             href={PDF_URL}
-            download="30day_dec_prime.pdf"
+            download="pravila_promo_sa.pdf"
             className="block text-emerald-400 hover:text-emerald-300 underline"
           >
             Скачать PDF (download attr)
@@ -238,7 +238,7 @@ export default function Home() {
             22. Android Intent URL
           </h2>
           <a
-            href={`intent://www.sberbank.com/sberprime/static/pdf/30day_dec_prime.pdf#Intent;scheme=https;action=android.intent.action.VIEW;end`}
+            href={`intent://zvuk.com/docs/sa/pravila_promo_sa.pdf#Intent;scheme=https;action=android.intent.action.VIEW;end`}
             className="block text-emerald-400 hover:text-emerald-300 underline"
           >
             Открыть (Intent URL для Android)
