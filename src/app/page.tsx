@@ -4,6 +4,9 @@ import Link from "next/link";
 
 const PDF_URL = "https://www.sberbank.com/sberprime/static/pdf/30day_dec_prime.pdf";
 
+// URL для диплинков браузеров (можно подставить любой)
+const BROWSER_DEEP_LINK_URL = "https://yandex.ru";
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100 p-8">
@@ -362,6 +365,52 @@ export default function Home() {
           >
             Вариант: browsers:// + ссылка
           </a>
+        </section>
+
+        <section className="space-y-6">
+          <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
+            33. Диплинки браузеров (открыть URL в конкретном браузере)
+          </h2>
+          <p className="text-slate-400 text-sm">
+            Схемы для открытия ссылки в установленном браузере. URL: <code className="text-slate-300">{BROWSER_DEEP_LINK_URL}</code>
+          </p>
+          <ul className="space-y-2 text-sm">
+            <li>
+              <a href={`googlechrome://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Google Chrome — googlechrome://open?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`yandexbrowser://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Яндекс Браузер — yandexbrowser://open?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`firefox://open-url?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Firefox — firefox://open-url?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`opera://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Opera — opera://open?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`msedge://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Microsoft Edge — msedge://open?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`samsunginternet://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Samsung Internet — samsunginternet://open?url=…
+              </a>
+            </li>
+            <li>
+              <a href={`brave://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+                Brave — brave://open?url=…
+              </a>
+            </li>
+          </ul>
         </section>
 
         <section className="space-y-6 pt-8 border-t border-slate-700">
