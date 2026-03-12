@@ -367,8 +367,10 @@ export default function Home() {
           <br />
           <br />
           <a
-            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
-            target="_blank"
+            href={
+              "https://open.zvuk.com/cLQ0?af_ios_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_android_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_web_dp=https://zvuk.com/docs/sa/pravila_promo_sa.pdf"
+            }
+            target="_self"
             rel="noopener"
             className="text-emerald-400 underline"
           >
@@ -377,7 +379,9 @@ export default function Home() {
           <br />
           <br />
           <a
-            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
+            href={
+              "https://open.zvuk.com/cLQ0?af_ios_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_android_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_web_dp=https://zvuk.com/docs/sa/pravila_promo_sa.pdf"
+            }
             target="_blank"
             rel="noopener"
             className="text-emerald-400 underline"
@@ -387,7 +391,9 @@ export default function Home() {
           <br />
           <br />
           <a
-            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
+            href={
+              "https://open.zvuk.com/cLQ0?af_ios_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_android_url=https://zvuk.com/docs/sa/pravila_promo_sa.pdf&af_web_dp=https://zvuk.com/docs/sa/pravila_promo_sa.pdf"
+            }
             target="_blank"
             rel="noopener"
             download="30day_dec_prime.pdf"
