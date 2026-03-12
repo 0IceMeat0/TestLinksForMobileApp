@@ -17,9 +17,7 @@ export default function Home() {
         <h1 className="text-2xl font-bold text-emerald-400">
           Варианты ссылок на PDF
         </h1>
-        <p className="text-slate-400 text-sm">
-          URL: {PDF_URL}
-        </p>
+        <p className="text-slate-400 text-sm">URL: {PDF_URL}</p>
         <section className="space-y-6">
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
             7. JavaScript onclick + window.open (вариант для WebView)
@@ -84,7 +82,9 @@ export default function Home() {
           </h2>
           <button
             type="button"
-            onClick={() => { window.location.href = PDF_URL; }}
+            onClick={() => {
+              window.location.href = PDF_URL;
+            }}
             className="block text-emerald-400 hover:text-emerald-300 underline text-left"
           >
             Открыть PDF (location.href)
@@ -97,7 +97,9 @@ export default function Home() {
           </h2>
           <button
             type="button"
-            onClick={() => { window.location.assign(PDF_URL); }}
+            onClick={() => {
+              window.location.assign(PDF_URL);
+            }}
             className="block text-emerald-400 hover:text-emerald-300 underline text-left"
           >
             Открыть PDF (location.assign)
@@ -139,8 +141,16 @@ export default function Home() {
           <h2 className="text-lg font-semibold text-slate-200 border-b border-slate-700 pb-2">
             15. Form GET + target=_blank
           </h2>
-          <form action={PDF_URL} method="get" target="_blank" className="inline-block">
-            <button type="submit" className="text-emerald-400 hover:text-emerald-300 underline text-left">
+          <form
+            action={PDF_URL}
+            method="get"
+            target="_blank"
+            className="inline-block"
+          >
+            <button
+              type="submit"
+              className="text-emerald-400 hover:text-emerald-300 underline text-left"
+            >
               Открыть PDF (form target blank)
             </button>
           </form>
@@ -152,7 +162,9 @@ export default function Home() {
           </h2>
           <button
             type="button"
-            onClick={() => window.open(PDF_URL, "_blank", "noopener,noreferrer,noopener")}
+            onClick={() =>
+              window.open(PDF_URL, "_blank", "noopener,noreferrer,noopener")
+            }
             className="block text-emerald-400 hover:text-emerald-300 underline text-left"
           >
             Открыть PDF (window.open full params)
@@ -193,7 +205,9 @@ export default function Home() {
             role="link"
             tabIndex={0}
             onClick={() => window.open(PDF_URL, "_blank")}
-            onKeyDown={(e) => e.key === "Enter" && window.open(PDF_URL, "_blank")}
+            onKeyDown={(e) =>
+              e.key === "Enter" && window.open(PDF_URL, "_blank")
+            }
             className="block text-emerald-400 hover:text-emerald-300 underline cursor-pointer"
           >
             Открыть PDF (span + onClick)
@@ -224,8 +238,21 @@ export default function Home() {
           <button
             type="button"
             onClick={() => {
-              if (typeof window !== "undefined" && (window as unknown as { ReactNativeWebView?: { postMessage: (s: string) => void } }).ReactNativeWebView) {
-                (window as unknown as { ReactNativeWebView: { postMessage: (s: string) => void } }).ReactNativeWebView.postMessage(JSON.stringify({ type: "openUrl", url: PDF_URL }));
+              if (
+                typeof window !== "undefined" &&
+                (
+                  window as unknown as {
+                    ReactNativeWebView?: { postMessage: (s: string) => void };
+                  }
+                ).ReactNativeWebView
+              ) {
+                (
+                  window as unknown as {
+                    ReactNativeWebView: { postMessage: (s: string) => void };
+                  }
+                ).ReactNativeWebView.postMessage(
+                  JSON.stringify({ type: "openUrl", url: PDF_URL })
+                );
               } else {
                 window.open(PDF_URL, "_blank");
               }
@@ -296,7 +323,13 @@ export default function Home() {
           </h2>
           <button
             type="button"
-            onClick={() => window.open(PDF_URL, "_blank", "width=800,height=600,menubar=no,toolbar=no")}
+            onClick={() =>
+              window.open(
+                PDF_URL,
+                "_blank",
+                "width=800,height=600,menubar=no,toolbar=no"
+              )
+            }
             className="block text-emerald-400 hover:text-emerald-300 underline text-left"
           >
             Открыть PDF (popup features)
@@ -322,14 +355,47 @@ export default function Home() {
           <embed src={LOCAL_PDF_PATH}  width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             
             </embed> */}
-            <a href={LOCAL_PDF_PATH} target="_blank" rel="noopener" download="30day_dec_prime.pdf" className="text-emerald-400 underline">Скачать документ</a>
-            <br />
-            <a href={'https://zvuk.com/about/documents/terms'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest</a>
-            <br />
-            <a href={'https://zvuk.com/docs/sa/pravila_promo_sa.pdf'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest2</a>
-            <br />
-            <a href={'https://zvuk.com/docs/sa/pravila_promo_sa.pdf'} target="_blank" rel="noopener" download="30day_dec_prime.pdf" className="text-emerald-400 underline">Скачать документ</a>
-            {/* <a href={'/30day_dec_prime.pdf'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest</a>
+          <a
+            href={LOCAL_PDF_PATH}
+            target="_blank"
+            rel="noopener"
+            download="30day_dec_prime.pdf"
+            className="text-emerald-400 underline"
+          >
+            Скачать документ
+          </a>
+          <br />
+          <br />
+          <a
+            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
+            target="_blank"
+            rel="noopener"
+            className="text-emerald-400 underline"
+          >
+            Скачать PDFtest
+          </a>
+          <br />
+          <br />
+          <a
+            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
+            target="_blank"
+            rel="noopener"
+            className="text-emerald-400 underline"
+          >
+            Скачать PDFtest2
+          </a>
+          <br />
+          <br />
+          <a
+            href={"https://open.zvuk.com/cLQ0/ikast4z2"}
+            target="_blank"
+            rel="noopener"
+            download="30day_dec_prime.pdf"
+            className="text-emerald-400 underline"
+          >
+            Скачать документ
+          </a>
+          {/* <a href={'/30day_dec_prime.pdf'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDFtest</a>
             <object data={'https://zvuk.com/about/documents/terms'} type="application/pdf" width="100%" height="300" className="border border-slate-600 rounded" aria-label="PDF viewer">
             <a href={'https://zvuk.com/about/documents/terms'} target="_blank" rel="noopener" className="text-emerald-400 underline">Скачать PDF</a>
           </object>
@@ -359,7 +425,9 @@ export default function Home() {
             31. Android (открытие в браузере)
           </h2>
           <p className="text-slate-400 text-sm">
-            Ссылка для перехвата в приложении: <code className="text-slate-300">shouldOverrideUrlLoading</code> → <code className="text-slate-300">Intent.ACTION_VIEW</code>.
+            Ссылка для перехвата в приложении:{" "}
+            <code className="text-slate-300">shouldOverrideUrlLoading</code> →{" "}
+            <code className="text-slate-300">Intent.ACTION_VIEW</code>.
           </p>
           <a
             href={PDF_URL}
@@ -377,7 +445,9 @@ export default function Home() {
             32. Диплинк browsers:// (открыть в браузере)
           </h2>
           <p className="text-slate-400 text-sm">
-            Кастомная схема: приложение перехватывает <code className="text-slate-300">browsers://</code> и открывает URL в браузере.
+            Кастомная схема: приложение перехватывает{" "}
+            <code className="text-slate-300">browsers://</code> и открывает URL
+            в браузере.
           </p>
           <a
             href={`browsers://open?url=${encodeURIComponent(PDF_URL)}`}
@@ -398,41 +468,77 @@ export default function Home() {
             33. Диплинки браузеров (открыть URL в конкретном браузере)
           </h2>
           <p className="text-slate-400 text-sm">
-            Схемы для открытия ссылки в установленном браузере. URL: <code className="text-slate-300">{BROWSER_DEEP_LINK_URL}</code>
+            Схемы для открытия ссылки в установленном браузере. URL:{" "}
+            <code className="text-slate-300">{BROWSER_DEEP_LINK_URL}</code>
           </p>
           <ul className="space-y-2 text-sm">
             <li>
-              <a href={`googlechrome://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`googlechrome://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Google Chrome — googlechrome://open?url=…
               </a>
             </li>
             <li>
-              <a href={`yandexbrowser://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`yandexbrowser://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Яндекс Браузер — yandexbrowser://open?url=…
               </a>
             </li>
             <li>
-              <a href={`firefox://open-url?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`firefox://open-url?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Firefox — firefox://open-url?url=…
               </a>
             </li>
             <li>
-              <a href={`opera://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`opera://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Opera — opera://open?url=…
               </a>
             </li>
             <li>
-              <a href={`msedge://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`msedge://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Microsoft Edge — msedge://open?url=…
               </a>
             </li>
             <li>
-              <a href={`samsunginternet://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`samsunginternet://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Samsung Internet — samsunginternet://open?url=…
               </a>
             </li>
             <li>
-              <a href={`brave://open?url=${encodeURIComponent(BROWSER_DEEP_LINK_URL)}`} className="text-emerald-400 hover:text-emerald-300 underline">
+              <a
+                href={`brave://open?url=${encodeURIComponent(
+                  BROWSER_DEEP_LINK_URL
+                )}`}
+                className="text-emerald-400 hover:text-emerald-300 underline"
+              >
                 Brave — brave://open?url=…
               </a>
             </li>
